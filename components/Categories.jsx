@@ -2,7 +2,7 @@ import React from 'react'
 
 const Categories = () => {
   return (
-    <div>
+    <div className='mt-4'>
         <h3 className="text-lg font-semibold text-gray-900 text-center">Categories</h3>
         <div className='flex flex-wrap gap-4 items-center justify-center'>
             
