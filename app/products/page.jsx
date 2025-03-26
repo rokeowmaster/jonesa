@@ -8,9 +8,9 @@ const ProductList = () => {
     const { addToCart } = useCart();
     
     const products = [
-        { id: 1, name: "Laptop", price: 999 },
-        { id: 2, name: "Phone", price: 499 },
-        { id: 3, name: "Headphones", price: 199 }
+        { id: 1, name: "Divan", price: 12999 },
+        { id: 2, name: "L-Seat", price: 19499 },
+        { id: 3, name: "Coffee Table", price: 2199 }
     ];
 
     return (
@@ -22,7 +22,7 @@ const ProductList = () => {
             <ul className="list-none p-4">
                 {products.map((product) => (
                     <li key={product.id} className="flex justify-between py-2">
-                        {product.name} - ${product.price}
+                        {product.name} - Kshs. {product.price}
                         <button className="bg-blue-500 hover:bg-green-500 text-white font-bold py-2 px-4 rounded" onClick={() => addToCart(product)}>Add to Cart</button>
                     </li>
                 ))}
