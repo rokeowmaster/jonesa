@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Banner, Nav, Hero, Footer, BottomNav, Trending } from "@/components";
+import { Banner, Nav, Hero, Footer, Modal, BottomNav, Trending, Categories, Testimonial } from "@/components";
 export default function Home() {
   return (
     <main className="bg-white">
@@ -8,10 +8,12 @@ export default function Home() {
       <Nav />
       
       <Hero /> 
+      <Categories />
       <Trending />
+      <Testimonial />
       <Footer />
       <BottomNav />
-    
+
     </main>
   );
 }
