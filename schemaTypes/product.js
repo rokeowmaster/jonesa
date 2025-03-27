@@ -36,14 +36,22 @@ const product = {
         validation: (rule) => rule.required(),
         options: {
             list: [
-                { title: "living", value: "living" },
-                { title: "kitchen", value: "kitchen" },
-                { title: "bedroom", value: "bedroom" },
-                { title: "office", value: "office" },
+                { title: "Sofas", value: "sofas" },
+                { title: "Chairs", value: "chairs" },
+                { title: "Tables", value: "tables" },
+                { title: "Storage", value: "storage" },
+                { title: "Decor", value: "decor" },
+                { title: "Beds", value: "beds" },
+            
             ],
         },
     }),
-
+    {
+        name: "trending",
+        title: "Trending",
+        type: "boolean",
+        description: "Mark this product as trending",
+      },
   ],
 };
 

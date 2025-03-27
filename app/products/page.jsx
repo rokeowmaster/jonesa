@@ -7,6 +7,7 @@ import { Banner, Nav } from "@/components";
 import client from "@/sanityclient/client";
 import { urlFor } from "@/sanityclient/client";
 import Image from "next/image";
+import Link from "next/link";
 
 const ProductList = () => {
   const { addToCart } = useCart();
@@ -26,7 +27,7 @@ const ProductList = () => {
   }, []);
 
   return (
-    <div className="bg-gray-900 min-h-screen text-gray-200">
+    <div className="bg-gray-100 min-h-screen text-gray-900">
       <Banner />
       <Nav />
       <div className="container mx-auto p-6">
@@ -38,20 +39,23 @@ const ProductList = () => {
                 product.productImage && (
                   <div
                     key={product._id}
-                    className="bg-gray-800 rounded-lg p-4 shadow-lg"
+                    className="bg-white rounded-lg p-4 shadow-lg"
                   >
-                    <Image
-                      src={urlFor(product.productImage).url()}
-                      alt={product.name || "Product Image"}
-                      width={300}
-                      height={300}
-                      className="rounded-md"
-                    />
+                    {/* Wrap the Image in a Link */}
+                    <Link href={`/products/${product._id}`}>
+                      <Image
+                        src={urlFor(product.productImage).url()}
+                        alt={product.name || "Product Image"}
+                        width={300}
+                        height={300}
+                        className="rounded-md cursor-pointer hover:opacity-80 transition"
+                      />
+                    </Link>
                     <h3 className="text-xl font-medium mt-4">{product.productName}</h3>
-                    <p className="text-gray-400 text-sm mt-2">
+                    <p className="text-gray-600 text-sm mt-2">
                       {product.productDescription}
                     </p>
-                    <p className="text-orange-400 text-lg font-semibold mt-2">
+                    <p className="text-orange-500 text-lg font-semibold mt-2">
                       Kshs. {product.productPrice.toFixed(2)}
                     </p>
                     <button
@@ -65,7 +69,7 @@ const ProductList = () => {
             )}
           </div>
         ) : (
-          <p className="text-center text-gray-400">No products available</p>
+          <p className="text-center text-gray-500">No products available</p>
         )}
       </div>
     </div>
