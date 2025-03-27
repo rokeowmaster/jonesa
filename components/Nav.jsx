@@ -2,7 +2,7 @@
 import { useCart } from "@/context/cartContext";
 import Link from "next/link";
 import { ShoppingCart } from "lucide-react";
-// import { SignInButton, SignUpButton } from "@clerk/nextjs";
+import { SignInButton, SignUpButton } from "@clerk/nextjs";
 
 const Nav = () => {
   const { cart } = useCart();
@@ -30,8 +30,8 @@ const Nav = () => {
 
         {/* Right Section (Login + Cart) */}
         <div className="flex items-center gap-x-6 ml-16">
-          {/* <SignInButton />
-          <SignUpButton /> */}
+          <SignInButton />
+          <SignUpButton />
 
           <Link href="/cart" className="relative flex items-center">
             <ShoppingCart className="w-6 h-6 text-orange-400" />

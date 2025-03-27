@@ -20,7 +20,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider publicKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
 
     <html lang="en">
       <body
@@ -29,6 +29,6 @@ export default function RootLayout({ children }) {
        <CartProvider>{children}</CartProvider> 
       </body>
     </html>
-    </ClerkProvider>
+    // </ClerkProvider>
   );
 }
