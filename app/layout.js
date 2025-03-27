@@ -28,6 +28,6 @@ export default function RootLayout({ children }) {
        <CartProvider>{children}</CartProvider> 
       </body>
     </html>
-    {/* </ClerkProvider> */}
+    
   );
 }
