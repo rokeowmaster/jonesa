@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -13,12 +14,14 @@ const Hero = () => {
         <p className="mt-4 text-lg text-slate-600 max-w-xl leading-relaxed">
           Leading producer of quality, durable furniture across the country.
         </p>
-        <button
-          type="button"
-          className="px-6 py-3 mt-8 rounded-lg text-[16px] font-semibold bg-blue-600 text-white hover:bg-blue-700 transition duration-300 shadow-md"
-        >
-          Explore
-        </button>
+        <Link href="/products">
+          <button
+            type="button"
+            className="px-6 py-3 mt-8 rounded-lg text-[16px] font-semibold bg-blue-600 text-white hover:bg-blue-700 transition duration-300 shadow-md"
+          >
+            Explore
+          </button>
+        </Link>
       </div>
 
       {/* Right Image */}
