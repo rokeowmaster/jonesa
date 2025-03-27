@@ -20,7 +20,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider publishableKey="pk_test_cHJvYmFibGUtZGFuZS05Mi5jbGVyay5hY2NvdW50cy5kZXYk">
+    // <ClerkProvider publishableKey="pk_test_cHJvYmFibGUtZGFuZS05Mi5jbGVyay5hY2NvdW50cy5kZXYk">
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -28,6 +28,6 @@ export default function RootLayout({ children }) {
        <CartProvider>{children}</CartProvider> 
       </body>
     </html>
-    </ClerkProvider>
+    {/* </ClerkProvider> */}
   );
 }
