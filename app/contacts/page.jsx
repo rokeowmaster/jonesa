@@ -14,7 +14,7 @@ const ContactPage = () => {
       <div className="grid md:grid-cols-3 gap-8 mb-12">
         <div className="flex items-center gap-4 bg-gray-100 p-6 rounded-lg shadow-md">
           <Phone className="w-8 h-8 text-orange-500" />
-          <p className="text-gray-800 text-lg">+1 (555) 123-4567</p>
+          <p className="text-gray-800 text-lg">+254 (703) 628-177</p>
         </div>
         <div className="flex items-center gap-4 bg-gray-100 p-6 rounded-lg shadow-md">
           <Mail className="w-8 h-8 text-orange-500" />
@@ -22,7 +22,7 @@ const ContactPage = () => {
         </div>
         <div className="flex items-center gap-4 bg-gray-100 p-6 rounded-lg shadow-md">
           <MapPin className="w-8 h-8 text-orange-500" />
-          <p className="text-gray-800 text-lg">1234 Furniture Ave, New York, NY</p>
+          <p className="text-gray-800 text-lg">Kisumu-Kakamega Road, Kenya</p>
         </div>
       </div>
 
