@@ -1,68 +1,75 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useCart } from "@/context/cartContext";
-import Link from "next/link";
+import { getProduct } from "@/sanityclient/query";
 import { Banner, Nav } from "@/components";
+import client from "@/sanityclient/client";
+import { urlFor } from "@/sanityclient/client";
+import Image from "next/image";
 
 const ProductList = () => {
-    const { addToCart } = useCart();
-    
-    const products = [
-        { id: 1, name: "Divan", price: 12999 },
-        { id: 2, name: "L-Seat", price: 19499 },
-        { id: 3, name: "Coffee Table", price: 2199 }
-    ];
+  const { addToCart } = useCart();
+  const [products, setProducts] = useState([]);
 
-    return (
-        <div className="">
-        <Banner />
-        <Nav />
-        <div className="container mx-auto m-4">
-            <h2>Products</h2>
-            <ul className="flex flex-wrap gap-4 list-none p-4">
-                {products.map((product) => (
-                
-                    <div key={product.id} className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-                        <a href="#">
-                            <img className="p-8 rounded-t-lg" src="sofa.png" alt="product image" />
-                        </a>
-                        <div className="px-5 pb-5">
-                            <a href="#">
-                                <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{product.name}</h5>
-                            </a>
-                            <div className="flex items-center mt-2.5 mb-5">
-                                <div className="flex items-center space-x-1 rtl:space-x-reverse">
-                                    <svg className="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                                    </svg>
-                                    <svg className="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                                    </svg>
-                                    <svg className="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                                    </svg>
-                                    <svg className="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                                    </svg>
-                                    <svg className="w-4 h-4 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                                    </svg>
-                                </div>
-                                <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-sm dark:bg-blue-200 dark:text-blue-800 ms-3">5.0</span>
-                            </div>
-                            <div className="flex items-center justify-between">
-                                <span className="text-3xl font-bold text-gray-900 dark:text-white">Kshs. {product.price}</span>
-                                <button onClick={() => addToCart(product)} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</button>
-                            </div>
-                        </div>
-                    </div>
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const data = await getProduct(client);
+        setProducts(data || []);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
 
-                ))}
-            </ul>
-            <Link href="/cart">Go to Cart</Link>
-        </div>
+    fetchProducts();
+  }, []);
+
+  return (
+    <div className="bg-gray-900 min-h-screen text-gray-200">
+      <Banner />
+      <Nav />
+      <div className="container mx-auto p-6">
+        <h2 className="text-3xl font-semibold text-center mb-8">Our Products</h2>
+        {products.length > 0 ? (
+          <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
+            {products.map(
+              (product) =>
+                product.productImage && (
+                  <div
+                    key={product._id}
+                    className="bg-gray-800 rounded-lg p-4 shadow-lg"
+                  >
+                    <Image
+                      src={urlFor(product.productImage).url()}
+                      alt={product.name || "Product Image"}
+                      width={300}
+                      height={300}
+                      className="rounded-md"
+                    />
+                    <h3 className="text-xl font-medium mt-4">{product.productName}</h3>
+                    <p className="text-gray-400 text-sm mt-2">
+                      {product.productDescription}
+                    </p>
+                    <p className="text-orange-400 text-lg font-semibold mt-2">
+                      Kshs. {product.productPrice.toFixed(2)}
+                    </p>
+                    <button
+                      className="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 rounded-md transition"
+                      onClick={() => addToCart(product)}
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
+                )
+            )}
+          </div>
+        ) : (
+          <p className="text-center text-gray-400">No products available</p>
+        )}
+      </div>
     </div>
-    );
+  );
 };
 
 export default ProductList;

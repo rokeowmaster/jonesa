@@ -1,20 +1,35 @@
-import React from 'react'
+import React from 'react';
 
 const Testimonial = () => {
   return (
-    
-    <div className='flex items-center justify-center h-screen'>
-        <div className="mx-auto w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-            <div className="flex flex-col items-center pb-10">
-                <img className="w-24 h-24 mb-3 rounded-full shadow-lg" src="lady.jpg" alt="Bonnie image"/>
-                <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">Bonnie Green</h5>
-                <span className="text-sm text-gray-500 dark:text-gray-400">Visual Designer</span>
-                <p className="px-6 mt-3 text-center text-gray-700 dark:text-gray-300">"I've been Buying from Jonesa a while now and it's been great! Everything is easy to find and it's great to have everything in one place."</p>
-            </div>
+    <div className="flex items-center justify-center min-h-screen px-4 bg-gray-100 dark:bg-gray-900">
+      <div className="relative w-full max-w-sm p-6 rounded-xl shadow-lg bg-white/30 dark:bg-gray-800/40 backdrop-blur-lg border border-white/20">
+        
+        {/* Profile Image */}
+        <div className="flex flex-col items-center text-center">
+          <img
+            className="w-24 h-24 mb-4 rounded-full border-4 border-white shadow-lg"
+            src="lady.jpg"
+            alt="Bonnie Green"
+          />
+          
+          {/* Name & Role */}
+          <h5 className="text-lg font-semibold text-gray-900 dark:text-white">
+            Bonnie Green
+          </h5>
+          <span className="text-sm text-gray-600 dark:text-gray-400">
+            Visual Designer
+          </span>
+
+          {/* Testimonial Text */}
+          <p className="mt-4 px-4 text-sm text-gray-700 dark:text-gray-300 italic">
+            "I've been buying from Jonesa for a while now, and it's been great! Everything is easy to find, and it's amazing to have everything in one place."
+          </p>
         </div>
+
+      </div>
     </div>
+  );
+};
 
-  )
-}
-
-export default Testimonial
+export default Testimonial;

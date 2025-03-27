@@ -1,64 +1,48 @@
-import React from 'react'
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+
+const categories = [
+  { name: "Sofas", image: "/sofa.png" },
+  { name: "Chairs", image: "/chair.webp" },
+  { name: "Tables", image: "/table.jfif" },
+  { name: "Beds", image: "/bed.avif" },
+  { name: "Storage", image: "/storage.webp" },
+  { name: "Decor", image: "/decor.webp" },
+];
 
 const Categories = () => {
   return (
-    <div className='mt-4'>
-        <h3 className="text-lg font-semibold text-gray-900 text-center">Categories</h3>
-        <div className='flex flex-wrap gap-4 items-center justify-center'>
-            
+    <div className="max-w-6xl mx-auto py-10 px-4">
+      {/* Heading Section */}
+      <div className="text-center mb-10">
+        <h2 className="text-3xl font-bold text-black">Explore Our Categories</h2>
+        <p className="mt-2 text-lg text-black">
+          Find the perfect furniture to match your style.
+        </p>
+      </div>
 
-            <div className="max-w-sm p-3 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Living room</h5>
-                </a>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Elevate your space with stylish sofas, cozy armchairs, and elegant coffee tables.</p>
-                <a href="/products" className="inline-flex items-center px-2 py-1 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    More
-                    <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                    </svg>
-                </a>
+      {/* Categories Grid */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+        {categories.map((category, index) => (
+          <Link key={index} href="/products" passHref>
+            <div className="relative group overflow-hidden rounded-xl shadow-md bg-white/20 dark:bg-gray-800/40 backdrop-blur-lg border border-white/20 hover:scale-105 transition-transform cursor-pointer">
+              <Image
+                src={category.image}
+                alt={category.name}
+                width={300}
+                height={200}
+                className="w-full h-40 object-cover rounded-xl"
+              />
+              <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/50 transition-all">
+                <span className="text-white text-lg font-semibold">{category.name}</span>
+              </div>
             </div>
-            <div className="max-w-sm p-3 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Bedroom</h5>
-                </a>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Experience restful nights with our luxurious beds, nightstands, and wardrobes.</p>
-                <a href="/products" className="inline-flex items-center px-2 py-1 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    More
-                    <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                    </svg>
-                </a>
-            </div>
-            <div className="max-w-sm p-3 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Dining & Kitchen</h5>
-                </a>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Gather in style with beautifully designed dining sets and functional kitchen pieces.</p>
-                <a href="/products" className="inline-flex items-center px-2 py-1 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    More
-                    <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                    </svg>
-                </a>
-            </div>
-            <div className="max-w-sm p-3 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Office & Study</h5>
-                </a>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Enhance productivity with ergonomic desks, chairs, and storage solutions.</p>
-                <a href="/products" className="inline-flex items-center px-2 py-1 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    More
-                    <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                    </svg>
-                </a>
-            </div>
-
-        </div>
+          </Link>
+        ))}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Categories
+export default Categories;
