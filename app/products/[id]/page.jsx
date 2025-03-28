@@ -53,7 +53,7 @@ export default function ProductDetails() {
 
           {/* Product Details */}
           <div>
-            <h2 className="text-3xl font-bold text-gray-900">{product.productName}</h2>
+            <h2 className="text-3xl font-bold text-white">{product.productName}</h2>
             <p className="text-xl text-blue-600 font-semibold mt-2">
               Kshs. {product.productPrice.toFixed(2)}
             </p>
