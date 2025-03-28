@@ -41,25 +41,28 @@ export default function ProductDetails() {
       <Banner />  
       <Nav />
       <div className="max-w-4xl mx-auto px-6 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        {/* Ensure the container is always single-column on small screens */}
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Product Image */}
-          <Image
-            src={urlFor(product.productImage).url()}
-            alt={product.productName}
-            width={500}
-            height={400}
-            className="w-full h-auto rounded-lg shadow"
-          />
+          <div className="w-full">
+            <Image
+              src={urlFor(product.productImage).url()}
+              alt={product.productName}
+              width={500}
+              height={400}
+              className="w-full h-auto rounded-lg shadow"
+            />
+          </div>
 
           {/* Product Details */}
-          <div>
+          <div className="w-full">
             <h2 className="text-3xl font-bold text-white">{product.productName}</h2>
             <p className="text-xl text-blue-600 font-semibold mt-2">
               Kshs. {product.productPrice.toFixed(2)}
             </p>
             <p className="mt-4 text-gray-600">{product.productDescription}</p>
             <button
-              onClick={() => addToCart(product)} // ✅ Now addToCart works!
+              onClick={() => addToCart(product)}
               className="mt-6 px-6 py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition"
             >
               Add to Cart
