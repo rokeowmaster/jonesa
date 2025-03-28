@@ -33,7 +33,7 @@ const ProductList = () => {
       <div className="container mx-auto p-6">
         <h2 className="text-3xl font-semibold text-center mb-8">Our Products</h2>
         {products.length > 0 ? (
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {products.map(
               (product) =>
                 product.productImage && (
