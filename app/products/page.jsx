@@ -39,16 +39,16 @@ const ProductList = () => {
                 product.productImage && (
                   <div
                     key={product._id}
-                    className="bg-white rounded-lg p-4 shadow-lg"
+                    className="bg-white rounded-lg p-4 shadow-lg flex flex-col items-center"
                   >
                     {/* Wrap the Image in a Link */}
                     <Link href={`/products/${product._id}`}>
                       <Image
                         src={urlFor(product.productImage).url()}
                         alt={product.name || "Product Image"}
-                        width={300}
-                        height={300}
-                        className="rounded-md cursor-pointer hover:opacity-80 transition"
+                        width={250}
+                        height={250}
+                        className="w-[250px] h-[250px] object-cover rounded-md cursor-pointer hover:opacity-80 transition"
                       />
                     </Link>
                     <h3 className="text-xl font-medium mt-4">{product.productName}</h3>
