@@ -41,7 +41,7 @@ export default function ProductDetails() {
       <Banner />  
       <Nav />
       <div className="max-w-4xl mx-auto px-6 py-10">
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Product Image */}
           <Image
             src={urlFor(product.productImage).url()}
