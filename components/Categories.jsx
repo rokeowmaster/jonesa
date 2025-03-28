@@ -5,7 +5,7 @@ import Link from "next/link";
 const categories = [
   { name: "Sofas", image: "/sofa.png" },
   { name: "Chairs", image: "/chair.webp" },
-  { name: "Tables", image: "/table.jfif" },
+  { name: "Tables", image: "/table.webp" },
   { name: "Beds", image: "/bed.avif" },
   { name: "Storage", image: "/storage.webp" },
   { name: "Decor", image: "/decor.webp" },
