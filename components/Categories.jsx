@@ -25,7 +25,7 @@ const Categories = () => {
       {/* Categories Grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
         {categories.map((category, index) => (
-          <Link key={index} href="/products" passHref>
+          <Link key={index} href={`/productscategory/${category.name}`} passHref>
             <div className="relative group overflow-hidden rounded-xl shadow-md bg-white/20 dark:bg-gray-800/40 backdrop-blur-lg border border-white/20 hover:scale-105 transition-transform cursor-pointer">
               <Image
                 src={category.image}
