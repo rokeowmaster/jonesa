@@ -14,7 +14,7 @@ const Nav = () => {
   }, [cart]);
 
   return (
-    <header className="bg-gray-900 text-gray-200 shadow-md">
+    <header className="fixed top-0 w-full z-50 bg-gray-900 text-gray-200 shadow-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-12" aria-label="Global">
         {/* Logo Section */}
         <div className="flex lg:flex-1">
@@ -33,7 +33,7 @@ const Nav = () => {
           </Link>
         </div>
 
-        {/* Right Section (Login + Cart) */}
+        {/* Right Section (Cart) */}
         <div className="flex items-center gap-x-6 ml-16">
           <Link href="/cart" className="relative flex items-center">
             <ShoppingCart className="w-6 h-6 text-orange-400" />
