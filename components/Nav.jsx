@@ -14,7 +14,7 @@ const Nav = () => {
   }, [cart]);
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-gray-900 text-gray-200 shadow-md">
+    <header className="bg-gray-900 text-gray-200 shadow-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-12" aria-label="Global">
         {/* Logo Section */}
         <div className="flex lg:flex-1">
