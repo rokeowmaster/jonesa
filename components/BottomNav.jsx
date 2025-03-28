@@ -41,7 +41,7 @@ const BottomNav = () => {
         </Link>
 
         {/* Contacts */}
-        <Link href="/contact" className="flex flex-col items-center justify-center px-5 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all">
+        <Link href="/contacts" className="flex flex-col items-center justify-center px-5 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all">
           <svg className="w-6 h-6 text-gray-600 dark:text-gray-300 transition" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
             <path d="M22 16.92V19a2 2 0 0 1-2 2 15 15 0 0 1-15-15 2 2 0 0 1 2-2h2.08a2 2 0 0 1 2 1.72 10 10 0 0 0 3.3 5.29 2 2 0 0 1 .62 2.11z" />
           </svg>
