@@ -45,7 +45,7 @@ const Cart = () => {
     ).join("\n");
 
     const totalPrice = getTotal().toFixed(2);
-    const message = `Hello! I'd like to place an order:\n\n${orderMessage}\n\nTotal: $${totalPrice}`;
+    const message = `Hello! I'd like to place an order: Payment on Delivery\n\n${orderMessage}\n\nTotal: $${totalPrice}`;
 
     const whatsappURL = `https://wa.me/${+254703628177}?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, "_blank");

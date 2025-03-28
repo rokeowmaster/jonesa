@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams, notFound } from "next/navigation";
 import { getProduct } from "@/sanityclient/query";
+import { addToCart } from "@/lib/actions";
 import Image from "next/image";
 import client from "@/sanityclient/client";
 import { urlFor } from "@/sanityclient/client";
@@ -54,7 +55,7 @@ export default function ProductDetails() {
           <h2 className="text-3xl font-bold text-gray-900">{product.productName}</h2>
           <p className="text-xl text-blue-600 font-semibold mt-2">Kshs. {product.productPrice.toFixed(2)}</p>
           <p className="mt-4 text-gray-600">{product.productDescription}</p>
-          <button className="mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition">
+          <button onClick={() => addToCart(product)}className="mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition">
             Add to Cart
           </button>
         </div>

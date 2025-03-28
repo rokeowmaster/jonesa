@@ -1,11 +1,17 @@
 "use client";
+
 import { useCart } from "@/context/cartContext";
 import Link from "next/link";
 import { ShoppingCart } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const Nav = () => {
   const { cart } = useCart();
-  const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    setCartCount(cart.reduce((total, item) => total + (item.quantity || 1), 0));
+  }, [cart]);
 
   return (
     <header className="bg-gray-900 text-gray-200 shadow-md">
@@ -29,7 +35,6 @@ const Nav = () => {
 
         {/* Right Section (Login + Cart) */}
         <div className="flex items-center gap-x-6 ml-16">
-
           <Link href="/cart" className="relative flex items-center">
             <ShoppingCart className="w-6 h-6 text-orange-400" />
             {cartCount > 0 && (
