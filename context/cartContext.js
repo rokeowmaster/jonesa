@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState } from "react";
-import { addToCart as addToCartAction, getCart } from "@/lib/actions";
+import { addToCart as addToCartAction,removeFromCart as removeFromCartAction, getCart } from "@/lib/actions";
 
 const CartContext = createContext();
 
@@ -15,13 +15,18 @@ export const CartProvider = ({ children }) => {
         setCart(updatedCart);
     };
 
+    const removeFromCart = async (product) => {
+        const updatedCart = await removeFromCartAction(product);
+        setCart(updatedCart);
+    };
+
     // const loadCart = async () => {
     //     const cartData = await getCart();
     //     setCart(cartData);
     // };
 
     return (
-        <CartContext.Provider value={{ cart, addToCart}}>
+        <CartContext.Provider value={{ cart, addToCart, removeFromCart}}>
             {children}
         </CartContext.Provider>
     );
